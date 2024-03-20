@@ -1,4 +1,4 @@
-**Prueba Técnica - Programador (Back-end Senior/Semi Senior)**
+**Prueba Técnica - Programador**
 
 *La siguiente es una prueba para evaluar a los postulantes a programador Back-end.*
 
@@ -21,7 +21,7 @@ Principalmente los siguientes aspectos:
 
 ## IMPORTANTE
 
-1. Recomendamos emplear un máximo de 4 (cuatro) horas y enviar todo lo que puedas.
+1. Recomendamos emplear un máximo de 2 dias y enviar todo lo que puedas.
 2. Se requiere de una cuenta de Bitbucket para realizar este ejercicio.
 3. Antes de comenzar a programar:
     - Realizar un Fork de este repositorio (https://bitbucket.org/cs3dev/backend-test).
@@ -49,13 +49,41 @@ Se desea administrar el sistema de compras y ventas de una tienda miscelanea, te
 
 ![api security diagram](img/diagrama.drawio.svg)
 
+### Organizacion (Nombre BD: organization)
+
+| Field | Value | Null |
+|---|---|---|
+| id | uniqueidentifier | false |
+| name | varchar(200) | false |
+| email | varchar(50) | false |
+| phone | varchar(50) | false |
+| documentNumber | varchar(40) | false |
+| address | varchar(400) | false |
+| createdAt | datetime | false |
+| updatedAt | datetime | false |
+| deletedAt | datetime | true |
+
+### Cliente (Nombre BD: client)
+
+| Field | Value | Null |
+|---|---|---|
+| id | uniqueidentifier | false |
+| name | varchar(200) | false |
+| documentType | varchar(10) | false |
+| documentNumber | varchar(40) | false |
+| address | varchar(400) | false |
+| createdAt | datetime | false |
+| updatedAt | datetime | false |
+| deletedAt | datetime | true |
+
 ### Factura (Nombre BD: facture)
 
 | Field | Value | Null |
 |---|---|---|
 | id | uniqueidentifier | false |
 | date | datetime | false |
-| description | varchar(400) | true |
+| expiredDate | datetime | false |
+| clientId | uniqueidentifier (forgein key, no primary) | false |
 | createdAt | datetime | false |
 | updatedAt | datetime | false |
 | deletedAt | datetime | true |
@@ -66,7 +94,6 @@ Se desea administrar el sistema de compras y ventas de una tienda miscelanea, te
 |---|---|---|
 | id | uniqueidentifier | false |
 | name | varchar(50) | false |
-| description | varchar(400) | true |
 | value | decimal(10,3) | false |
 | wholesaleNumber | int | true |
 | wholesalePercentage | int | true |
@@ -95,8 +122,12 @@ Luego de poder realizar un CRUD base de cada una de las tablas se desea:
 *Tener en cuenta que el aplicativo debe tener las bases de autenticacion (Tabla Usuario) para poder ejecutar los servicios*
 
 1. Devolver como servicio un resumen de la factura con totalizador de montos:
-    - Teniendo en cuenta los campos de la tabla Articulo (article) **wholesaleNumber** (numero al por mayor) y **wholesalePercentage** (porcentaje de descuento al por mayor) realizar los correspondientes calculos de descuento si algun numero de articulos de la tabla factura detalle sobrepase la cantidad definida al por mayor.
-    - De ser posible, devolver en la misma respuesta el arreglo de factura detalle.
+
+
+![api security diagram](img/explication.drawio.png)
+
+- Teniendo en cuenta los campos de la tabla Articulo (article) **wholesaleNumber** (numero al por mayor) y **wholesalePercentage** (porcentaje de descuento al por mayor) realizar los correspondientes calculos de descuento si algun numero de articulos de la tabla factura detalle sobrepase la cantidad definida al por mayor.
+- De ser posible, devolver en la misma respuesta el arreglo de factura detalle.
 
 2. Devolver como servicio las 5 facturas con mayor cantidad de objetos comprados.
 
