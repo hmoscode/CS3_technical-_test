@@ -92,6 +92,8 @@ Se desea administrar el sistema de compras y ventas de una tienda miscelanea, te
 
 Luego de poder realizar un CRUD base de cada una de las tablas se desea:
 
+*Tener en cuenta que el aplicativo debe tener las bases de autenticacion (Tabla Usuario) para poder ejecutar los servicios*
+
 1. Devolver como servicio un resumen de la factura con totalizador de montos:
     - Teniendo en cuenta los campos de la tabla Articulo (article) **wholesaleNumber** (numero al por mayor) y **wholesalePercentage** (porcentaje de descuento al por mayor) realizar los correspondientes calculos de descuento si algun numero de articulos de la tabla factura detalle sobrepase la cantidad definida al por mayor.
     - De ser posible, devolver en la misma respuesta el arreglo de factura detalle.
