@@ -21,7 +21,7 @@ Principalmente los siguientes aspectos:
 
 ## IMPORTANTE
 
-1. Recomendamos emplear un máximo de 6 (seis) horas y enviar todo lo que puedas.
+1. Recomendamos emplear un máximo de 4 (cuatro) horas y enviar todo lo que puedas.
 2. Se requiere de una cuenta de Bitbucket para realizar este ejercicio.
 3. Antes de comenzar a programar:
     - Realizar un Fork de este repositorio (https://bitbucket.org/cs3dev/backend-test).
