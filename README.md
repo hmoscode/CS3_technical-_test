@@ -43,7 +43,7 @@ Principalmente los siguientes aspectos:
 
 ---
 
-## EJERCICIO
+## ESTRUCTURA
 
 Se desea administrar el sistema de compras y ventas de una tienda miscelanea, teniendo en cuenta que las compras no necesitan datos del comprador, los datos a registrar son solamente datos base de la factura, el detalle de la factura y la informacion de los productos.
 
@@ -85,6 +85,10 @@ Se desea administrar el sistema de compras y ventas de una tienda miscelanea, te
 | createdAt | datetime | false |
 | updatedAt | datetime | false |
 | deletedAt | datetime | true |
+
+---
+
+## EJERCICIO
 
 Luego de poder realizar un CRUD base de cada una de las tablas se desea:
 
