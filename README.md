@@ -39,7 +39,7 @@ Principalmente los siguientes aspectos:
 2. Implementar GraphQL para la creación de la API (**Opcional**, si no, se pueden realizar con controladores base de Nest).
 3. Utilizar TypeScript para el desarrollo del código (**Requerido**).
 4. Utilizar SQL Server como base de datos para almacenar los libros (**Opcional**, tambien se puede utilizar PostgreSQL u otro).
-6. Utilizar Docker para contenerizar la aplicación (**Opcional**).
+6. Utilizar Docker para contenerizar la aplicación (**Requerido**, los cambios se deberian poder subir a Docker Hub).
 
 ---
 
