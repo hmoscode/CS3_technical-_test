@@ -132,3 +132,5 @@ Luego de poder realizar un CRUD base de cada una de las tablas se desea:
 2. Devolver como servicio las 5 facturas con mayor cantidad de objetos comprados.
 
 3. Devolver como servicio las 5 facturas con mayor cantidad de montos finales.
+
+4. Utilizar una libreria de generación de documentos pdf con el fin de imprimir los datos tabla de una factura o de cualquiera de los puntos anteriores, el fin de esto es el uso e implementacion correcta de una libreria como modulo estructurado dentro del aplicativo
