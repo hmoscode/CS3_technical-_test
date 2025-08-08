@@ -28,8 +28,8 @@ Principalmente los siguientes aspectos:
     - Clonar el fork a su máquina local git clone https://cs3dev@bitbucket.org/cs3dev/FORKED-PROJECT.git
     - Crear un branch en su cuenta de Bitbucket utilizando su nombre completo.
     - Al finalizar, existen 2 (dos) opciones para entregar su proyecto:
-    - Realizar un Commit de su proyecto, enviar un Pull Request al branch con su NOMBRE, y notificar a la siguiente dirección de correo electrónico lmartes@cs3.com.co.
-    - Enviar el enlace del Fork con la explicacion del montaje al correo rkoudsi@comercializadora-s3.com.
+    - Realizar un Commit de su proyecto, enviar un Pull Request al branch con su NOMBRE, y notificar a la siguiente dirección de correo electrónico dvergel@cs3.com.co.
+    - Enviar el enlace del Fork con la explicacion del montaje al correo dvergel@cs3.com.co.
 
 ---
 
