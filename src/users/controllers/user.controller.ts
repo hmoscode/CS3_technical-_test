@@ -1,0 +1,30 @@
+import { Body, Controller, HttpStatus, Post } from "@nestjs/common";
+import { ApiBearerAuth, ApiOkResponse, ApiOperation } from "@nestjs/swagger";
+import { CREATED_MESSAGE } from "../../shared/constants/messages.constant";
+import { CreatedRecordResponseDto } from "../../shared/dtos/response.dto";
+import { CreateUserDto } from "../dtos/user.dto";
+import { CreateUserService } from "../services/create-user.service";
+
+@Controller("user")
+export class UserController {
+  constructor(private readonly createUserService: CreateUserService) {}
+
+  @ApiBearerAuth()
+  @Post()
+  @ApiOkResponse({
+    type: CreatedRecordResponseDto,
+  })
+  @ApiOperation({
+    summary: "Create User",
+    description:
+      "Creates a new user in the system if the email is not registered.",
+  })
+  async create(@Body() data: CreateUserDto): Promise<CreatedRecordResponseDto> {
+    const id = await this.createUserService.run(data);
+    return {
+      statusCode: HttpStatus.CREATED,
+      data: { rowId: id },
+      message: CREATED_MESSAGE,
+    };
+  }
+}

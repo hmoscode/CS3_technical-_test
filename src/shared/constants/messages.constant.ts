@@ -1,0 +1,8 @@
+export const CREATED_MESSAGE = 'Informacion almacenada correctamente'
+export const UPDATED_MESSAGE = 'Registro actualizado correctamente'
+export const DELETED_MESSAGE = 'Registro eliminado correctamente'
+export const DUPLICATED_MESSAGE = 'Registro duplicado'
+export const VALIDATION_MESSAGE = 'Validation error'
+export const NOT_FOUND_MESSAGE = 'Resource not found'
+export const UNAUTHORIZED_MESSAGE = 'Unauthorized'
+export const SERVICE_ERROR_MESSAGE = 'Service Error'

@@ -1,9 +1,41 @@
 import { Module } from "@nestjs/common";
-
+import { ConfigModule } from "@nestjs/config";
+import { TypeOrmModule } from "@nestjs/typeorm";
 import { SharedModule } from "@shared/shared.module";
+import { config } from "./config";
+import { UsersModule } from "./users/users.module";
+import { AuthModule } from "./auth/auth.module";
+import { OrganizationModule } from './organization/organization.module';
+import "dotenv/config";
 
 @Module({
-  imports: [SharedModule],
+  imports: [
+    SharedModule,
+    ConfigModule.forRoot({
+      isGlobal: true,
+      load: [config],
+    }),
+    TypeOrmModule.forRoot({
+      host: process.env.DB_HOST,
+      port: Number(process.env.DB_PORT) || 3306,
+      username: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_DATABASE,
+      type: "mysql",
+      migrations: [
+        __dirname + "/migrations/*.{ts,js}",
+        __dirname + "/../dist/migrations/*.{js}",
+      ],
+      entities: [
+        __dirname + "/users/entities/*.entity.{ts,js}",
+        __dirname + "/../dist/**/*.entity.js",
+      ],
+      synchronize: false,
+    }),
+    UsersModule,
+    AuthModule,
+    OrganizationModule,
+  ],
   controllers: [],
   providers: [],
 })
