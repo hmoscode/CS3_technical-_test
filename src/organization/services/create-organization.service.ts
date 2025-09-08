@@ -9,7 +9,9 @@ export class CreateOrganizationService {
   ) {}
 
   async run(data: CreateOrganizationDto): Promise<number> {
-    const existing = await this.organizationRepository.findOne({});
+    const existing = await this.organizationRepository.findOne({
+      where: { id: 1 },
+    });
     if (existing) {
       throw new BadRequestException("An organization already exists.");
     }

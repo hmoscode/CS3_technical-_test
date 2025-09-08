@@ -9,7 +9,11 @@ export class GetOrganizationService {
   ) {}
 
   async run(): Promise<OrganizationEntity> {
-    const organization = await this.organizationRepository.findOne({}); // considere dejarlo de esta forma ya que es single tenant, si fuera multi tenant se deberia buscar por id
+    const organization = await this.organizationRepository.findOne({
+      where: {
+        id: 1,
+      },
+    }); // considere dejarlo de esta forma ya que es single tenant, si fuera multi tenant se deberia buscar por id
     if (!organization) {
       throw new Error("Organization not found");
     }
