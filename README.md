@@ -1,136 +1,98 @@
-**Prueba Técnica - Programador Backend**
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
+</p>
 
-*La siguiente es una prueba para evaluar a los postulantes a programador Back-end.*
+[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
+[circleci-url]: https://circleci.com/gh/nestjs/nest
 
----
+  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
+    <p align="center">
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
+<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
+<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
+<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
+<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
+  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
+    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
+  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
+</p>
+  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
+  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## INTRODUCCIÓN
+## Description
 
-Este repositorio contiene una serie de requerimientos de un Caso Práctico, que busca evaluar las capacidades técnicas del candidato con respecto a las principales funciones y responsabilidades que se requieren dentro del área de Desarrollo de Tecnología en CS3.
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-¿Qué se busca evaluar?
-Principalmente los siguientes aspectos:
+## Project setup
 
-1. Creatividad para resolver los requerimientos,
-2. Calidad del código entregado (estructura y buenas prácticas),
-3. Eficiencia de los algoritmos entregados,
-4. Familiaridad con Frameworks y plataformas de desarrollo.
-5. Principios SOLID (si conoce).
+```bash
+$ npm install
+```
 
----
+## Compile and run the project
 
-## IMPORTANTE
+```bash
+# development
+$ npm run start
 
-1. Recomendamos emplear un máximo de 2 dias hábiles y enviar todo lo que puedas.
-2. Se requiere de una cuenta de Bitbucket para realizar este ejercicio.
-3. Antes de comenzar a programar:
-    - Realizar un Fork de este repositorio (https://bitbucket.org/cs3dev/backend-test).
-    - Clonar el fork a su máquina local git clone https://cs3dev@bitbucket.org/cs3dev/FORKED-PROJECT.git
-    - Crear un branch en su cuenta de Bitbucket utilizando su nombre completo.
-    - Al finalizar, existen 2 (dos) opciones para entregar su proyecto:
-    - Realizar un Commit de su proyecto, enviar un Pull Request al branch con su NOMBRE, y notificar a la siguiente dirección de correo electrónico dvergel@cs3.com.co.
-    - Enviar el enlace del Fork con la explicacion del montaje al correo dvergel@cs3.com.co.
+# watch mode
+$ npm run start:dev
 
----
+# production mode
+$ npm run start:prod
+```
 
-## ENTREGA ESPERADA
+## Run tests
 
-1. Utilizar NestJS como framework para el desarrollo del backend (**Requerido**).
-2. Implementar GraphQL para la creación de la API (**Opcional**, si no, se pueden realizar con controladores base de Nest).
-3. Utilizar TypeScript para el desarrollo del código (**Requerido**).
-4. Utilizar SQL Server como base de datos para almacenar los libros (**Opcional**, tambien se puede utilizar PostgreSQL u otro).
-6. Utilizar Docker para contenerizar la aplicación (**Requerido**, los cambios se deberian poder subir a Docker Hub).
+```bash
+# unit tests
+$ npm run test
 
----
+# e2e tests
+$ npm run test:e2e
 
-## ESTRUCTURA
+# test coverage
+$ npm run test:cov
+```
 
-Se desea administrar el sistema de compras y ventas de una tienda miscelanea, teniendo en cuenta que las compras no necesitan datos del comprador, los datos a registrar son solamente datos base de la factura, el detalle de la factura y la informacion de los productos.
+## Deployment
 
-![api security diagram](img/diagrama.drawio.svg)
+When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
 
-### Organizacion (Nombre BD: organization)
+If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
 
-| Field | Value | Null |
-|---|---|---|
-| id | uniqueidentifier | false |
-| name | varchar(200) | false |
-| email | varchar(50) | false |
-| phone | varchar(50) | false |
-| documentNumber | varchar(40) | false |
-| address | varchar(400) | false |
-| createdAt | datetime | false |
-| updatedAt | datetime | false |
-| deletedAt | datetime | true |
+```bash
+$ npm install -g @nestjs/mau
+$ mau deploy
+```
 
-### Cliente (Nombre BD: client)
+With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
 
-| Field | Value | Null |
-|---|---|---|
-| id | uniqueidentifier | false |
-| name | varchar(200) | false |
-| documentType | varchar(10) | false |
-| documentNumber | varchar(40) | false |
-| address | varchar(400) | false |
-| createdAt | datetime | false |
-| updatedAt | datetime | false |
-| deletedAt | datetime | true |
+## Resources
 
-### Factura (Nombre BD: facture)
+Check out a few resources that may come in handy when working with NestJS:
 
-| Field | Value | Null |
-|---|---|---|
-| id | uniqueidentifier | false |
-| date | datetime | false |
-| expiredDate | datetime | false |
-| clientId | uniqueidentifier (forgein key, no primary) | false |
-| createdAt | datetime | false |
-| updatedAt | datetime | false |
-| deletedAt | datetime | true |
+- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
+- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
+- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
+- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
+- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
+- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
+- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
+- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
 
-### Articulo (Nombre BD: article)
+## Support
 
-| Field | Value | Null |
-|---|---|---|
-| id | uniqueidentifier | false |
-| name | varchar(50) | false |
-| value | decimal(10,3) | false |
-| wholesaleNumber | int | true |
-| wholesalePercentage | int | true |
-| factureDetailId | uniqueidentifier (forgein key, no primary)  | false |
-| createdAt | datetime | false |
-| updatedAt | datetime | false |
-| deletedAt | datetime | true |
+Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-### Factura Detalle (Nombre BD: factureDetail)
+## Stay in touch
 
-| Field | Value | Null |
-|---|---|---|
-| id | uniqueidentifier | false |
-| articleId | uniqueidentifier (forgein key, no primary) | false |
-| numberItems | int | false |
-| createdAt | datetime | false |
-| updatedAt | datetime | false |
-| deletedAt | datetime | true |
+- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
+- Website - [https://nestjs.com](https://nestjs.com/)
+- Twitter - [@nestframework](https://twitter.com/nestframework)
 
----
+## License
 
-## EJERCICIO
-
-Luego de poder realizar un CRUD base de cada una de las tablas se desea:
-
-*Tener en cuenta que el aplicativo debe tener las bases de autenticacion (Tabla Usuario) para poder ejecutar los servicios*
-
-1. Devolver como servicio un resumen de la factura con totalizador de montos:
-
-
-![api security diagram](img/explication.drawio.png)
-
-- Teniendo en cuenta los campos de la tabla Articulo (article) **wholesaleNumber** (numero al por mayor) y **wholesalePercentage** (porcentaje de descuento al por mayor) realizar los correspondientes calculos de descuento si algun numero de articulos de la tabla factura detalle sobrepase la cantidad definida al por mayor.
-- De ser posible, devolver en la misma respuesta el arreglo de factura detalle.
-
-2. Devolver como servicio las 5 facturas con mayor cantidad de objetos comprados.
-
-3. Devolver como servicio las 5 facturas con mayor cantidad de montos finales.
-
-4. Utilizar una libreria de generación de documentos pdf con el fin de imprimir los datos tabla de una factura o de cualquiera de los puntos anteriores, el fin de esto es el uso e implementacion correcta de una libreria como modulo estructurado dentro del aplicativo
+Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
