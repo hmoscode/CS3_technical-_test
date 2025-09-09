@@ -56,7 +56,7 @@ export class CustomerController {
     description: " Get all customers",
   })
   async getAll() {
-    return this.getAllCustomersService.run();
+    return await this.getAllCustomersService.run();
   }
 
   @Get(":id")
@@ -68,7 +68,7 @@ export class CustomerController {
     description: "Get customer by ID",
   })
   async getById(@Param("id") id: number) {
-    return this.getCustomerByIdService.run(id);
+    return await this.getCustomerByIdService.run(id);
   }
 
   @Put(":id")

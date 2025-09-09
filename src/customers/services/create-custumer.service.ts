@@ -1,12 +1,12 @@
 import { ConflictException, Injectable } from "@nestjs/common";
-import { CreateCustomerDto } from "../dtos/customer.dto";
+import { CustomerDto } from "../dtos/customer.dto";
 import { CustomerRepository } from "../repositories/customer.repostiory";
 
 @Injectable()
 export class CreateCustumerService {
   constructor(private readonly customerRepository: CustomerRepository) {}
 
-  async run(data: CreateCustomerDto): Promise<number> {
+  async run(data: CustomerDto): Promise<number> {
     const exists = await this.customerRepository.findOne({
       where: {
         documentNumber: data.documentNumber,
