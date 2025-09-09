@@ -1,4 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  CreateDateColumn,
+  DeleteDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from "typeorm";
 
 @Entity("organization")
 export class OrganizationEntity {
@@ -23,12 +30,12 @@ export class OrganizationEntity {
   @Column({ type: "varchar", length: 255, nullable: false })
   logoUrl: string;
 
-  @Column({ type: "datetime", nullable: true })
+  @CreateDateColumn({ type: "datetime", nullable: true })
   createdAt?: Date;
 
-  @Column({ type: "datetime", nullable: true })
-  updatedAt: Date;
+  @UpdateDateColumn({ type: "datetime", nullable: true })
+  updatedAt?: Date;
 
-  @Column({ type: "datetime", nullable: true })
+  @DeleteDateColumn({ type: "datetime", nullable: true })
   deletedAt?: Date;
 }

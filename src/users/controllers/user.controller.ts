@@ -9,7 +9,6 @@ import { CreateUserService } from "../services/create-user.service";
 export class UserController {
   constructor(private readonly createUserService: CreateUserService) {}
 
-  @ApiBearerAuth()
   @Post()
   @ApiOkResponse({
     type: CreatedRecordResponseDto,

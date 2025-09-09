@@ -56,6 +56,9 @@ export class OrganizationController {
     summary: "Get organization",
     description: "Get an organization by ID",
   })
+  @ApiOkResponse({
+    type: CreateOrganizationDto,
+  })
   async get(): Promise<OrganizationEntity> {
     return await this.getOrganizationService.run();
   }
