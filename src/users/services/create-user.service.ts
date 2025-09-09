@@ -1,14 +1,13 @@
 import { ConflictException, Injectable } from "@nestjs/common";
 import { hashPassword } from "@shared/utils/password.util";
-
+import { UserDto } from "../dtos/user.dto";
 import { UserRepository } from "../repositories/user.repository";
-import { CreateUserDto } from "../dtos/user.dto";
 
 @Injectable()
 export class CreateUserService {
   constructor(private readonly userRepository: UserRepository) {}
 
-  async run(data: CreateUserDto) {
+  async run(data: UserDto) {
     const exists = await this.userRepository.existsBy({
       email: data.email,
     });

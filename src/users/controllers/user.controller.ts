@@ -1,5 +1,5 @@
 import { Body, Controller, HttpStatus, Post } from "@nestjs/common";
-import { ApiBearerAuth, ApiOkResponse, ApiOperation } from "@nestjs/swagger";
+import { ApiOkResponse, ApiOperation } from "@nestjs/swagger";
 import { CREATED_MESSAGE } from "../../shared/constants/messages.constant";
 import { CreatedRecordResponseDto } from "../../shared/dtos/response.dto";
 import { CreateUserDto } from "../dtos/user.dto";

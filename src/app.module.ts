@@ -6,6 +6,10 @@ import { AuthModule } from "./auth/auth.module";
 import { config } from "./config";
 import { OrganizationModule } from "./organization/organization.module";
 import { UsersModule } from "./users/users.module";
+import { CustomerModule } from './customer/customer.module';
+import { CustomersModule } from './customers/customers.module';
+import { ArticlesModule } from './articles/articles.module';
+import { InvoicesModule } from './invoices/invoices.module';
 import "dotenv/config";
 
 @Module({
@@ -35,6 +39,10 @@ import "dotenv/config";
     UsersModule,
     AuthModule,
     OrganizationModule,
+    CustomerModule,
+    CustomersModule,
+    ArticlesModule,
+    InvoicesModule,
   ],
   controllers: [],
   providers: [],

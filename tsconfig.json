@@ -23,7 +23,10 @@
       "@shared/*": ["src/shared/*"],
       "@users/*": ["src/users/*"],
       "@auth/*": ["src/auth/*"],
-      "@organization/*": ["src/organization/*"]
+      "@organization/*": ["src/organization/*"],
+      "@articles/*": ["src/articles/*"],
+      "@customers/*": ["src/customers/*"],
+      "@invoices/*": ["src/invoices/*"]
     }
   }
 }

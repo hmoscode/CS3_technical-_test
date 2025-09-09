@@ -4,8 +4,8 @@ import {
   Get,
   HttpStatus,
   Param,
-  Patch,
   Post,
+  Put,
 } from "@nestjs/common";
 import { ApiOkResponse, ApiOperation, ApiTags } from "@nestjs/swagger";
 import {
@@ -63,7 +63,7 @@ export class OrganizationController {
     return await this.getOrganizationService.run();
   }
 
-  @Patch(":id")
+  @Put(":id")
   @ApiOperation({
     summary: "Update organization",
     description: "Update an existing organization",
