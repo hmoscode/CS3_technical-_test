@@ -12,7 +12,7 @@ import { InvoiceEntity } from "./invoice.entity";
 @Entity("invoice_details")
 export class InvoiceDetailEntity {
   @PrimaryGeneratedColumn({ type: "bigint" })
-  id: number;
+  id?: number;
 
   @Column({ type: "bigint" })
   invoiceId: number;
@@ -52,9 +52,9 @@ export class InvoiceDetailEntity {
 
   @ManyToOne(() => InvoiceEntity, (invoice) => invoice.details)
   @JoinColumn({ name: "invoiceId" })
-  invoice: InvoiceEntity;
+  invoice?: InvoiceEntity;
 
   @ManyToOne(() => ArticlesEntity, (articles) => articles.invoiceDetails)
   @JoinColumn({ name: "articleId" })
-  article: ArticlesEntity;
+  article?: ArticlesEntity;
 }

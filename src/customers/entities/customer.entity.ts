@@ -1,6 +1,5 @@
 /** biome-ignore-all lint/style/useNamingConvention: <> */
 
-import { InvoiceEntity } from "@invoices/entities/invoice.entity";
 import {
   Column,
   CreateDateColumn,
@@ -10,6 +9,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import { InvoiceEntity } from "../../invoices/entities/invoice.entity";
 
 export enum DocumentTypeEnum {
   CC = "CC",

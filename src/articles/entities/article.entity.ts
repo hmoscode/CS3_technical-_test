@@ -1,4 +1,3 @@
-import { InvoiceDetailEntity } from "@invoices/entities/invoice-detail.entity";
 import {
   Column,
   CreateDateColumn,
@@ -8,6 +7,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import { InvoiceDetailEntity } from "../../invoices/entities/invoice-detail.entity";
 
 @Entity("articles")
 export class ArticlesEntity {
