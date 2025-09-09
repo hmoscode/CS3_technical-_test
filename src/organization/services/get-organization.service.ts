@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, NotFoundException } from "@nestjs/common";
 import { OrganizationEntity } from "../entities/organization.entity";
 import { OrganizationRepository } from "../repositories/organization.repository";
 
@@ -15,7 +15,7 @@ export class GetOrganizationService {
       },
     }); // considere dejarlo de esta forma ya que es single tenant, si fuera multi tenant se deberia buscar por id
     if (!organization) {
-      throw new Error("Organization not found");
+      throw new NotFoundException("Organization not found");
     }
     return organization;
   }
