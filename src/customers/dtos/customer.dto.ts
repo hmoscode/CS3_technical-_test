@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsEnum, IsString } from "class-validator";
+import { IsEnum, IsNotEmpty, IsString } from "class-validator";
 import { DocumentTypeEnum } from "../entities/customer.entity";
 
 export class CustomerDto {
@@ -9,6 +9,7 @@ export class CustomerDto {
     maxLength: 200,
   })
   @IsString()
+  @IsNotEmpty()
   name: string;
 
   @ApiProperty({
@@ -17,6 +18,7 @@ export class CustomerDto {
     enum: DocumentTypeEnum,
   })
   @IsEnum(DocumentTypeEnum)
+  @IsNotEmpty()
   documentType: DocumentTypeEnum;
 
   @ApiProperty({
@@ -25,6 +27,7 @@ export class CustomerDto {
     maxLength: 40,
   })
   @IsString()
+  @IsNotEmpty()
   documentNumber: string;
 
   @ApiProperty({
@@ -33,5 +36,6 @@ export class CustomerDto {
     maxLength: 400,
   })
   @IsString()
+  @IsNotEmpty()
   address: string;
 }

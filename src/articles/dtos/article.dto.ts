@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsInt, IsNumber, IsString } from "class-validator";
+import { IsInt, IsNotEmpty, IsNumber, IsString } from "class-validator";
 
 export class ArticleDto {
   @ApiProperty({
@@ -10,6 +10,7 @@ export class ArticleDto {
     example: "Laptop",
   })
   @IsString()
+  @IsNotEmpty()
   name: string;
 
   @ApiProperty({
@@ -19,6 +20,7 @@ export class ArticleDto {
     example: 999.99,
   })
   @IsNumber({ maxDecimalPlaces: 3 })
+  @IsNotEmpty()
   price: number;
 
   @ApiProperty({
@@ -28,6 +30,7 @@ export class ArticleDto {
     example: "LAPTOP-001",
   })
   @IsString()
+  @IsNotEmpty()
   code: string;
 
   @ApiProperty({
@@ -37,6 +40,7 @@ export class ArticleDto {
     example: 10,
   })
   @IsInt()
+  @IsNotEmpty()
   wholesaleNumber: number;
 
   @ApiProperty({
@@ -46,5 +50,6 @@ export class ArticleDto {
     example: 3,
   })
   @IsInt()
+  @IsNotEmpty()
   wholesalePercentage: number;
 }

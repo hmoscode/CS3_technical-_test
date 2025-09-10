@@ -1,6 +1,11 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { Type } from "class-transformer";
-import { IsNumber, IsString, ValidateNested } from "class-validator";
+import {
+  IsNotEmpty,
+  IsNumber,
+  IsString,
+  ValidateNested,
+} from "class-validator";
 
 export class InvoiceDetailDto {
   @ApiProperty({
@@ -10,6 +15,7 @@ export class InvoiceDetailDto {
     example: 1,
   })
   @IsNumber()
+  @IsNotEmpty()
   articleId: number;
 
   @ApiProperty({
@@ -18,6 +24,7 @@ export class InvoiceDetailDto {
     example: 5,
   })
   @IsNumber()
+  @IsNotEmpty()
   quantity: number;
 }
 
@@ -28,6 +35,7 @@ export class InvoiceDto {
     example: "INV-123456",
   })
   @IsString()
+  @IsNotEmpty()
   invoiceNumber: string;
 
   @ApiProperty({
@@ -36,6 +44,7 @@ export class InvoiceDto {
     example: 1,
   })
   @IsNumber()
+  @IsNotEmpty()
   customerId: number;
 
   @ApiProperty({

@@ -19,8 +19,6 @@ export class UserController {
     description:
       "Creates a new user in the system if the email is not registered.",
   })
-  @ApiBearerAuth()
-  @UseGuards(AuthGuard())
   async create(@Body() data: UserDto): Promise<CreatedRecordResponseDto> {
     const id = await this.createUserService.run(data);
     return {

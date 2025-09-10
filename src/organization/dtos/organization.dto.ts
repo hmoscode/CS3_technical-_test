@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsEmail, IsString } from "class-validator";
+import { IsEmail, IsNotEmpty, IsString } from "class-validator";
 
 export class CreateOrganizationDto {
   @ApiProperty({
@@ -9,6 +9,7 @@ export class CreateOrganizationDto {
     example: "My Organization",
   })
   @IsString()
+  @IsNotEmpty()
   name: string;
 
   @ApiProperty({
@@ -18,6 +19,7 @@ export class CreateOrganizationDto {
     example: "contact@myorganization.com",
   })
   @IsEmail()
+  @IsNotEmpty()
   email: string;
 
   @ApiProperty({
@@ -27,6 +29,7 @@ export class CreateOrganizationDto {
     example: "+1234567890",
   })
   @IsString()
+  @IsNotEmpty()
   phone: string;
 
   @ApiProperty({
@@ -36,6 +39,7 @@ export class CreateOrganizationDto {
     example: "123456789",
   })
   @IsString()
+  @IsNotEmpty()
   documentNumber: string;
 
   @ApiProperty({
@@ -45,6 +49,7 @@ export class CreateOrganizationDto {
     example: "123 Main St, Anytown, USA",
   })
   @IsString()
+  @IsNotEmpty()
   address: string;
 
   @ApiProperty({
@@ -54,5 +59,6 @@ export class CreateOrganizationDto {
     example: "https://example.com/logo.png",
   })
   @IsString()
+  @IsNotEmpty()
   logoUrl: string;
 }
