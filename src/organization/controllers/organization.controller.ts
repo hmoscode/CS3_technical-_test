@@ -6,8 +6,15 @@ import {
   Param,
   Post,
   Put,
+  UseGuards,
 } from "@nestjs/common";
-import { ApiOkResponse, ApiOperation, ApiTags } from "@nestjs/swagger";
+import { AuthGuard } from "@nestjs/passport";
+import {
+  ApiBearerAuth,
+  ApiOkResponse,
+  ApiOperation,
+  ApiTags,
+} from "@nestjs/swagger";
 import {
   CREATED_MESSAGE,
   UPDATED_MESSAGE,
@@ -39,6 +46,8 @@ export class OrganizationController {
   @ApiOkResponse({
     type: CreatedRecordResponseDto,
   })
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard())
   async create(
     @Body() data: CreateOrganizationDto
   ): Promise<CreatedRecordResponseDto> {
@@ -59,6 +68,8 @@ export class OrganizationController {
   @ApiOkResponse({
     type: CreateOrganizationDto,
   })
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard())
   async get(): Promise<OrganizationEntity> {
     return await this.getOrganizationService.run();
   }
@@ -68,6 +79,8 @@ export class OrganizationController {
     summary: "Update organization",
     description: "Update an existing organization",
   })
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard())
   async update(
     @Param("id") id: number,
     @Body() data: CreateOrganizationDto

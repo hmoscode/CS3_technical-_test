@@ -28,14 +28,17 @@ export class InvoiceDetailCalculatorService {
         );
       }
       const unitPrice = article.price;
-      const totalPrice = unitPrice * detail.quantity;
-
       let priceWithWholesale: number | null = null;
+      let totalWholesale: number | null = null;
+      let totalPrice: number;
       if (detail.quantity >= article.wholesaleNumber) {
         const discount = (article.wholesalePercentage / 100) * unitPrice;
-        priceWithWholesale = (unitPrice - discount) * detail.quantity;
-        totalAmount += priceWithWholesale;
+        priceWithWholesale = unitPrice - discount;
+        totalWholesale = priceWithWholesale * detail.quantity;
+        totalPrice = totalWholesale;
+        totalAmount += totalWholesale;
       } else {
+        totalPrice = unitPrice * detail.quantity;
         totalAmount += totalPrice;
       }
 

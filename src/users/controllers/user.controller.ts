@@ -1,5 +1,6 @@
-import { Body, Controller, HttpStatus, Post } from "@nestjs/common";
-import { ApiOkResponse, ApiOperation } from "@nestjs/swagger";
+import { Body, Controller, HttpStatus, Post, UseGuards } from "@nestjs/common";
+import { AuthGuard } from "@nestjs/passport";
+import { ApiBearerAuth, ApiOkResponse, ApiOperation } from "@nestjs/swagger";
 import { CREATED_MESSAGE } from "../../shared/constants/messages.constant";
 import { CreatedRecordResponseDto } from "../../shared/dtos/response.dto";
 import { UserDto } from "../dtos/user.dto";
@@ -18,6 +19,8 @@ export class UserController {
     description:
       "Creates a new user in the system if the email is not registered.",
   })
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard())
   async create(@Body() data: UserDto): Promise<CreatedRecordResponseDto> {
     const id = await this.createUserService.run(data);
     return {

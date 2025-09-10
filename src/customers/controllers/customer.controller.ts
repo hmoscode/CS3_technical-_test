@@ -6,8 +6,15 @@ import {
   Param,
   Post,
   Put,
+  UseGuards,
 } from "@nestjs/common";
-import { ApiOkResponse, ApiOperation, ApiTags } from "@nestjs/swagger";
+import { AuthGuard } from "@nestjs/passport";
+import {
+  ApiBearerAuth,
+  ApiOkResponse,
+  ApiOperation,
+  ApiTags,
+} from "@nestjs/swagger";
 import { CREATED_MESSAGE } from "../../shared/constants/messages.constant";
 import { CreatedRecordResponseDto } from "../../shared/dtos/response.dto";
 import { CustomerDto } from "../dtos/customer.dto";
@@ -34,6 +41,8 @@ export class CustomerController {
     summary: "Create a new customer",
     description: "Create a new customer",
   })
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard())
   async create(@Body() data: CustomerDto): Promise<CreatedRecordResponseDto> {
     const id = await this.createCustomerService.run(data);
 
@@ -55,6 +64,8 @@ export class CustomerController {
     summary: " Get all customers",
     description: " Get all customers",
   })
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard())
   async getAll() {
     return await this.getAllCustomersService.run();
   }
@@ -67,6 +78,8 @@ export class CustomerController {
     summary: "Get customer by ID",
     description: "Get customer by ID",
   })
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard())
   async getById(@Param("id") id: number) {
     return await this.getCustomerByIdService.run(id);
   }
@@ -79,6 +92,8 @@ export class CustomerController {
     summary: "Update customer",
     description: "Update customer",
   })
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard())
   async update(@Param("id") id: number, @Body() data: CustomerDto) {
     await this.updateCustomerService.run(id, data);
     return {

@@ -6,8 +6,15 @@ import {
   Param,
   Post,
   Put,
+  UseGuards,
 } from "@nestjs/common";
-import { ApiOkResponse, ApiOperation, ApiTags } from "@nestjs/swagger";
+import { AuthGuard } from "@nestjs/passport";
+import {
+  ApiBearerAuth,
+  ApiOkResponse,
+  ApiOperation,
+  ApiTags,
+} from "@nestjs/swagger";
 import {
   CREATED_MESSAGE,
   UPDATED_MESSAGE,
@@ -40,6 +47,8 @@ export class ArticleController {
     summary: "Create a new article",
     description: "Create a new article",
   })
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard())
   async create(@Body() data: ArticleDto): Promise<CreatedRecordResponseDto> {
     const id = await this.createArticleService.run(data);
     return {
@@ -60,6 +69,8 @@ export class ArticleController {
     summary: "Get all articles",
     description: "Retrieve a list of all articles",
   })
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard())
   async findAll() {
     return await this.getAllArticlesService.run();
   }
@@ -72,6 +83,8 @@ export class ArticleController {
     summary: "Get article by ID",
     description: "Retrieve a single article by its ID",
   })
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard())
   async findOne(@Param("id") id: number) {
     return await this.getArticleByIdService.run(id);
   }
@@ -81,6 +94,8 @@ export class ArticleController {
     summary: "Update article",
     description: "Update an existing article",
   })
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard())
   async update(
     @Param("id") id: number,
     @Body() data: ArticleDto

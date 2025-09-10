@@ -35,6 +35,8 @@ async function bootstrap() {
     credentials: true,
   });
 
+  app.setGlobalPrefix("api/v1");
+
   const config = new DocumentBuilder()
     .setTitle("CS3_TECNICAL_TEST API")
     .setDescription("Documentación de la API de CS3_TECNICAL_TEST")

@@ -27,7 +27,7 @@ export class InvoiceDetailEntity {
   unitPrice: number;
 
   @Column({ type: "decimal", precision: 10, scale: 3 })
-  totalPrice: number;
+  totalAmount: number;
 
   @Column({ type: "decimal", precision: 10, scale: 3, nullable: true })
   priceWithWholesale?: number;

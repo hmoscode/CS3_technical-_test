@@ -38,7 +38,7 @@ export class CreateInvoiceService {
       articleId: detail.articleId,
       quantity: detail.quantity,
       unitPrice: detail.unitPrice,
-      totalPrice: detail.totalPrice,
+      totalAmount: detail.totalPrice,
       priceWithWholesale: detail.priceWithWholesale ?? undefined,
     }));
     await this.invoiceDetailRepository.save(invoiceDetails);
